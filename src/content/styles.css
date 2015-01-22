@@ -1,8 +1,30 @@
-.table {
-  border: none !important;
-  width: 100%; }
-  .table th {
-    border: none !important; }
+body {
+  padding: 20px; }
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0; }
+
+th, td {
+  padding: 8px;
+  white-space: nowrap;
+  border-bottom: 1px solid #c4c4c4; }
+
+td:first-child {
+  border-left: 1px solid #c4c4c4; }
+
+td:last-child {
+  border-right: 1px solid #c4c4c4; }
+
+td.detail {
+  white-space: normal;
+  padding-right: 128px; }
+
+.action-col {
+  width: 120px;
+  min-width: 120px;
+  border-left: 1px solid #c4c4c4; }
 
 @media only all {
   th.rst-p6, td.rst-p6,

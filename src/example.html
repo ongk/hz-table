@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+  <script src="app/hz-table.module.js"></script>
+  <script src="app/hz-table.directive.js"></script>
+  <script src="app/hz-select-all.directive.js"></script>
+  <style type="text/css">
+    .batch-action {
+      display: none;
+    }
+    .batch-action.checked {
+      display: inline-block;
+    }
+    .batch-action.checked:before {
+      content: '\f046';
+      font-family: 'FontAwesome';
+      margin-right: 5px;
+    }
+    .single-action.checked {
+      display: none;
+    }
+  </style>
+</head>
+<body ng-app="hz.widgets.table" ng-controller="MainCtrl">
+  <div class="wrapper" style="padding: 10px;">
+    <table st-table="rowCollection" hz-table class="narrow-table">
+      <thead>
+        <tr class="actions-header">
+          <th colspan="7">
+            <div class="form-inline">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Filter">
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                  </span>
+                </div>
+              </div>
+              <button class="btn btn-primary single-action" ng-class="{ checked: numSelected }" ng-click="addRow()">Create</button>
+              <button class="btn btn-primary batch-action" ng-class="{ checked: numSelected }">Batch Action</button>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th><input type="checkbox" hz-select-all="rowCollection" ng-checked="numSelected === rowCollection.length"/></th>
+          <th>Name</th>
+          <th>VCPUs</th>
+          <th>RAM</th>
+          <th>Total Disk</th>
+          <th>Root Disk</th>
+          <th>Ephemeral Disk</th>
+          <th>Public</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in rowCollection">
+          <td><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.vcpus }}</td>
+          <td>{{ row.ram }}</td>
+          <td>{{ row.totalDisk }}</td>
+          <td>{{ row.rootDisk }}</td>
+          <td>{{ row.ephemeralDisk }}</td>
+          <td>{{ row.isPublic }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7">Displaying 3 items</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</body>
+</html>
