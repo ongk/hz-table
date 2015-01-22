@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="content/styles.css" rel="stylesheet"/>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+  <script src="app/hz-table.module.js"></script>
+</head>
+<body ng-app="hz.widgets.table" ng-controller="MainCtrl">
+  <div class="wrapper" style="padding: 10px;">
+    <div class="responsive-wrapper">
+      <div class="responsive-scrollable">
+        <table st-table="rowCollection" class="table table-bordered rst">
+          <thead>
+            <tr>
+              <th class="rst-p1"></th>
+              <th class="rst-p1">Name</th>
+              <th class="rst-p2">VCPUs</th>
+              <th class="rst-p2">RAM</th>
+              <th class="rst-p2">Total Disk</th>
+              <th class="rst-p3">Root Disk</th>
+              <th class="rst-p3">Ephemeral Disk</th>
+              <th class="rst-p3">Public</th>
+              <th class="rst-p1">Action</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat-start="row in rowCollection">
+              <td class="rst-p1"><i class="fa fa-chevron-right"></i></td>
+              <td class="rst-p1">{{ row.name }}</td>
+              <td class="rst-p2">{{ row.vcpus }}</td>
+              <td class="rst-p2">{{ row.ram }}</td>
+              <td class="rst-p2">{{ row.totalDisk }}</td>
+              <td class="rst-p3">{{ row.rootDisk }}</td>
+              <td class="rst-p3">{{ row.ephemeralDisk }}</td>
+              <td class="rst-p3">{{ row.isPublic }}</td>
+              <td class="rst-p1 action-col" rowspan="2">
+                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+              </td>
+            </tr>
+            <tr ng-repeat-end>
+              <td class="detail" colspan="100">
+                Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus. Id massa etiam odio, porttitor sit lorem eget, vestibulum sed at purus est, arcu nullam nec cum. Ut sodales quis phasellus fusce, nibh donec amet lacus aliquet enim mauris, amet in arcu est sed. Eros odio neque suscipit orci tincidunt est. Feugiat fermentum dolor viverra egestas eu. Id posuere mi sem. Ligula magna felis natoque libero, in neque ut dignissim, integer suscipit. Aliquam nullam ultricies nam risus luctus, dui non ligula eu urna, in in lacus convallis. Vel amet aenean a diam erat turpis, tellus tincidunt suspendisse ac. Diam volutpat cum et ut, eu vestibulum diam, tempus amet dictum lobortis adipisicing maecenas, in aenean suscipit sit feugiat egestas.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

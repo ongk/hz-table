@@ -1,0 +1,70 @@
+.table {
+  border: none !important;
+  width: 100%;
+
+  th {
+    border: none !important;
+  }
+
+  // .detail {
+  //   position: absolute;
+  //   right: 0;
+  //   display: block;
+  //   float: left;
+  //   width: 100%;
+  //   height: 10em;
+  //   display: none;
+  // }
+}
+
+@media only all {
+    th.rst-p6, td.rst-p6,
+    th.rst-p5, td.rst-p5, th.rst-p4,
+    td.rst-p4, th.rst-p3, td.rst-p3,
+    th.rst-p2, td.rst-p2, th.rst-p1,
+    td.rst-p1 {
+        display: none;
+    }
+}
+
+@media screen and (min-width:20em) {
+    .rst th.rst-p1,
+    .rst td.rst-p1 {
+        display: table-cell;
+    }
+}
+
+@media screen and (min-width:30em) {
+    .rst th.rst-p2,
+    .rst td.rst-p2 {
+        display: table-cell;
+    }
+}
+
+@media screen and (min-width:40em) {
+    .rst th.rst-p3,
+    .rst td.rst-p3 {
+        display: table-cell;
+    }
+}
+
+@media screen and (min-width:50em) {
+    .rst th.rst-p4,
+    .rst td.rst-p4 {
+        display: table-cell;
+    }
+}
+
+@media screen and (min-width:60em) {
+    .rst th.rst-p5,
+    .rst td.rst-p5 {
+        display: table-cell;
+    }
+}
+
+@media screen and (min-width:70em) {
+    .rst th.rst-p6,
+    .rst td.rst-p6 {
+        display: table-cell;
+    }
+}
