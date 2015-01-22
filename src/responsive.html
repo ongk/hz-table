@@ -4,56 +4,75 @@
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="content/styles.css" rel="stylesheet"/>
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="../bower_components/angular/angular.min.js"></script>
   <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
   <script src="app/hz-table.module.js"></script>
 </head>
 <body ng-app="hz.widgets.table" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px;">
-    <div class="responsive-wrapper">
-      <div class="responsive-scrollable">
-        <table st-table="rowCollection" class="rst">
-          <thead>
-            <tr>
-              <th class="rst-p1"></th>
-              <th class="rst-p1">Name</th>
-              <th class="rst-p2">VCPUs</th>
-              <th class="rst-p2">RAM</th>
-              <th class="rst-p2">Total Disk</th>
-              <th class="rst-p3">Root Disk</th>
-              <th class="rst-p3">Ephemeral Disk</th>
-              <th class="rst-p3">Public</th>
-              <th class="rst-p1"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat-start="row in rowCollection">
-              <td class="rst-p1"><i class="fa fa-chevron-right"></i></td>
-              <td class="rst-p1">{{ row.name }}</td>
-              <td class="rst-p2">{{ row.vcpus }}</td>
-              <td class="rst-p2">{{ row.ram }}</td>
-              <td class="rst-p2">{{ row.totalDisk }}</td>
-              <td class="rst-p3">{{ row.rootDisk }}</td>
-              <td class="rst-p3">{{ row.ephemeralDisk }}</td>
-              <td class="rst-p3">{{ row.isPublic }}</td>
-              <td class="rst-p1 action-col" rowspan="2">
-                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
-              </td>
-            </tr>
-            <tr ng-repeat-end>
-              <td class="detail" colspan="9">
-                <div>
-                  <span class="rst-p2">{{ row.vcpus }}, {{ row.ram }}, {{ row.totalDisk }}</span>
-                  <span class="rst-p3">{{ row.rootDisk }}, {{ row.ephemeralDisk }}, {{ row.isPublic }}</span>
+    <table st-table="rowCollection" class="rst">
+      <thead>
+        <tr>
+          <th class="rst-p1"></th>
+          <th class="rst-p1">Name</th>
+          <th class="rst-p2">VCPUs</th>
+          <th class="rst-p2">RAM</th>
+          <th class="rst-p2">Total Disk</th>
+          <th class="rst-p3">Root Disk</th>
+          <th class="rst-p3">Ephemeral Disk</th>
+          <th class="rst-p3">Public</th>
+          <th class="rst-p1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat-start="row in rowCollection">
+          <td class="rst-p1"><i class="fa fa-chevron-right"></i></td>
+          <td class="rst-p1">{{ row.name }}</td>
+          <td class="rst-p2">{{ row.vcpus }}</td>
+          <td class="rst-p2">{{ row.ram }}</td>
+          <td class="rst-p2">{{ row.totalDisk }}</td>
+          <td class="rst-p3">{{ row.rootDisk }}</td>
+          <td class="rst-p3">{{ row.ephemeralDisk }}</td>
+          <td class="rst-p3">{{ row.isPublic }}</td>
+          <td class="rst-p1 action-col" rowspan="2">
+            <button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td class="detail" colspan="9">
+            <h5>Description</h5>
+            <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
+            <hr/>
+            <div class="tab-panel">
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#trust" aria-controls="home" role="tab" data-toggle="tab">Trust Assurance</a></li>
+                <li role="presentation"><a href="#host" aria-controls="profile" role="tab" data-toggle="tab">Host Capabilities</a></li>
+                <li role="presentation"><a href="#vcpu" aria-controls="messages" role="tab" data-toggle="tab">Virtual CPU Technology</a></li>
+                <li role="presentation"><a href="#quota" aria-controls="settings" role="tab" data-toggle="tab">Quota</a></li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="trust">
+                  <div>
+                    <strong>Version:</strong> 7.0.1
+                    <strong>Admin User:</strong> admin
+                    <span class="rst-p2"><strong>VCPUs:</strong> {{ row.vcpus }} <strong>RAM:</strong> {{ row.ram }} <strong>Total Disk:</strong> {{ row.totalDisk }}</span>
+                    <span class="rst-p3"><strong>Root Disk:</strong> {{ row.rootDisk }} <strong>Ephemeral Disk:</strong> {{ row.ephemeralDisk }} <strong>Public:</strong> {{ row.isPublic }}</span>
+                  </div>
+                  <h5>Detail Information</h5>
+                  <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
                 </div>
-
-                Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus. Id massa etiam odio, porttitor sit lorem eget, vestibulum sed at purus est, arcu nullam nec cum. Ut sodales quis phasellus fusce, nibh donec amet lacus aliquet enim mauris, amet in arcu est sed. Eros odio neque suscipit orci tincidunt est. Feugiat fermentum dolor viverra egestas eu. Id posuere mi sem. Ligula magna felis natoque libero, in neque ut dignissim, integer suscipit. Aliquam nullam ultricies nam risus luctus, dui non ligula eu urna, in in lacus convallis. Vel amet aenean a diam erat turpis, tellus tincidunt suspendisse ac. Diam volutpat cum et ut, eu vestibulum diam, tempus amet dictum lobortis adipisicing maecenas, in aenean suscipit sit feugiat egestas.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+                <div role="tabpanel" class="tab-pane" id="host">Host Capabilities</div>
+                <div role="tabpanel" class="tab-pane" id="vcpu">Host Capabilities</div>
+                <div role="tabpanel" class="tab-pane" id="quota">Host Capabilities</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr ng-repeat-end><td class="spacer" colspan="9"></td></tr>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
