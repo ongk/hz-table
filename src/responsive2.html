@@ -13,7 +13,7 @@
 </head>
 <body ng-app="hz.widgets.table" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px;">
-    <table st-table="rowCollection" hz-table class="table rst rst-expandable rst-batch-action">
+    <table st-table="rowCollection" hz-table class="table rst rst-expandable">
       <thead>
         <tr>
           <th class="select-col"><input type="checkbox" hz-select-all="rowCollection" ng-checked="numSelected === rowCollection.length"/></th>
@@ -39,8 +39,8 @@
           <td class="rst-p3">{{ row.rootDisk }}</td>
           <td class="rst-p3">{{ row.ephemeralDisk }}</td>
           <td class="rst-p3">{{ row.isPublic }}</td>
-          <td class="rst-p1 action-col" rowspan="2">
-            <button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i> Launch Instance</button>
+          <td class="rst-p1 action-col">
+            <button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
           </td>
         </tr>
         <tr>

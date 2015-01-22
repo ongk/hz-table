@@ -3,10 +3,11 @@
 
   angular
     .module('hz.widgets.table')
-    .directive('hzTable', hzTable);
+    .directive('hzTable', hzTable)
+    .directive('hzSelectAll', hzSelectAll)
+    .directive('hzExpandDetail', hzExpandDetail);
 
   function hzTable() {
-
     var defObj = {
       restrict: 'A',
       controller: hzTableController
@@ -50,6 +51,49 @@
       this.setOrder = function() {
         // set new ordering
       }
+    }
+  }
+
+  function hzSelectAll() {
+    var defObj = {
+      restrict: 'A',
+      require: '^hzTable',
+      scope: { rows: '=hzSelectAll' },
+      link: link
+    };
+
+    return defObj;
+
+    function link(scope, element, attrs, hzTableCtrl) {
+      element.on('click', function() {
+        scope.$apply(function() {
+          var checkedState = element.prop('checked');
+          angular.forEach(scope.rows, function(row) {
+            hzTableCtrl.select(row, checkedState);
+          });
+        });
+      });
+    }
+  }
+
+  function hzExpandDetail() {
+    var defObj = {
+      restrict: 'A',
+      link: link
+    };
+
+    return defObj;
+
+    function link(scope, element) {
+      element.on('click', function() {
+        element
+          .toggleClass('fa-chevron-right')
+          .toggleClass('fa-chevron-down');
+
+        element.parent()
+                  .parent()
+                  .toggleClass("expanded");
+      });
     }
   }
 
