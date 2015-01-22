@@ -23,7 +23,7 @@
               <th class="rst-p3">Root Disk</th>
               <th class="rst-p3">Ephemeral Disk</th>
               <th class="rst-p3">Public</th>
-              <th class="rst-p1">Action</th>
+              <th class="rst-p1"></th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +41,12 @@
               </td>
             </tr>
             <tr ng-repeat-end>
-              <td class="detail" colspan="10">
+              <td class="detail" colspan="9">
+                <div>
+                  <span class="rst-p2">{{ row.vcpus }}, {{ row.ram }}, {{ row.totalDisk }}</span>
+                  <span class="rst-p3">{{ row.rootDisk }}, {{ row.ephemeralDisk }}, {{ row.isPublic }}</span>
+                </div>
+
                 Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus. Id massa etiam odio, porttitor sit lorem eget, vestibulum sed at purus est, arcu nullam nec cum. Ut sodales quis phasellus fusce, nibh donec amet lacus aliquet enim mauris, amet in arcu est sed. Eros odio neque suscipit orci tincidunt est. Feugiat fermentum dolor viverra egestas eu. Id posuere mi sem. Ligula magna felis natoque libero, in neque ut dignissim, integer suscipit. Aliquam nullam ultricies nam risus luctus, dui non ligula eu urna, in in lacus convallis. Vel amet aenean a diam erat turpis, tellus tincidunt suspendisse ac. Diam volutpat cum et ut, eu vestibulum diam, tempus amet dictum lobortis adipisicing maecenas, in aenean suscipit sit feugiat egestas.
               </td>
             </tr>

@@ -24,13 +24,15 @@ td:last-child {
 
 td.detail {
   white-space: normal;
-  padding-right: 128px;
+  padding-right: 46px;
 }
 
 .action-col {
-  width: 120px;
-  min-width: 120px;
+  width: 30px;
+  min-width: 30px;
   border-left: 1px solid #c4c4c4;
+  text-align: center;
+  vertical-align: top;
 }
 
 @media only all {
@@ -41,12 +43,22 @@ td.detail {
     td.rst-p1 {
         display: none;
     }
+
+    span.rst-p6, span.rst-p5,
+    span.rst-p4, span.rst-p3,
+    span.rst-p2, span.rst-p1 {
+      display: inline-block;
+    }
 }
 
 @media screen and (min-width:20em) {
     .rst th.rst-p1,
     .rst td.rst-p1 {
         display: table-cell;
+    }
+
+    span.rst-p1 {
+      display: none;
     }
 }
 
@@ -55,12 +67,20 @@ td.detail {
     .rst td.rst-p2 {
         display: table-cell;
     }
+
+    span.rst-p2 {
+      display: none;
+    }
 }
 
 @media screen and (min-width:40em) {
     .rst th.rst-p3,
     .rst td.rst-p3 {
         display: table-cell;
+    }
+
+    span.rst-p3 {
+      display: none;
     }
 }
 
@@ -69,6 +89,10 @@ td.detail {
     .rst td.rst-p4 {
         display: table-cell;
     }
+
+    span.rst-p4 {
+      display: none;
+    }
 }
 
 @media screen and (min-width:60em) {
@@ -76,11 +100,19 @@ td.detail {
     .rst td.rst-p5 {
         display: table-cell;
     }
+
+    span.rst-p5 {
+      display: none;
+    }
 }
 
 @media screen and (min-width:70em) {
     .rst th.rst-p6,
     .rst td.rst-p6 {
         display: table-cell;
+    }
+
+    span.rst-p6 {
+      display: none;
     }
 }
