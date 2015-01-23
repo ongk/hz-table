@@ -2,10 +2,16 @@
   border-collapse: separate;
   border-spacing: 0;
   width: 100%; }
+  .rst thead tr th {
+    border: none; }
   .rst tbody tr td {
     position: relative;
     white-space: nowrap;
     z-index: 10; }
+    .rst tbody tr td:first-child {
+      border-left: 1px solid #cccccc; }
+    .rst tbody tr td:last-child, .rst tbody tr td.select-col {
+      border-right: 1px solid #cccccc; }
     .rst tbody tr td.action-col {
       background-color: #ffffff;
       border-left: 1px solid #cccccc;
@@ -23,15 +29,25 @@
       padding: 0;
       position: relative;
       z-index: 30; }
+  .rst tbody tr:nth-last-child(2) td:not(.spacer) {
+    border-bottom: 1px solid #cccccc; }
+  .rst tbody tr:last-child td.detail {
+    border-top: none;
+    border-bottom: 1px solid #cccccc; }
   .rst .select-col {
     max-width: 2.5em;
     width: 2.5em;
     text-align: center; }
-  .rst.rst-expandable tbody tr:nth-child(3n+2) {
+  .rst.rst-expandable tbody tr.detail-row td.detail {
     display: none; }
-  .rst.rst-expandable tbody tr.expanded + tr {
-    display: table-row; }
+  .rst.rst-expandable tbody tr.expanded + tr td.detail {
+    display: table-cell; }
+  .rst.rst-expandable tbody tr:nth-last-child(3).expanded + tr td.detail {
+    border-bottom: none; }
+  .rst.rst-expandable tbody tr:nth-last-child(2).expanded + tr td.detail {
+    border-bottom: 1px solid #cccccc; }
   .rst.rst-expandable .expander {
+    cursor: pointer;
     max-width: 1.5em;
     width: 1.5em; }
   .rst.rst-expandable.table-striped tbody tr:nth-child(2n+1) {
@@ -50,6 +66,14 @@
     width: 10em; }
   .rst.rst-batch-action td.detail {
     padding-right: 11em; }
+  .rst.modern tbody tr td {
+    border: none; }
+    .rst.modern tbody tr td:not(.detail) {
+      border-top: 1px solid #cccccc; }
+  .rst.modern tbody tr.expanded td {
+    border-bottom: none; }
+  .rst.modern tbody tr.expanded:nth-last-child(2) td:last-child[rowspan='2'] {
+    border-bottom: 1px solid #cccccc; }
   @media only all {
     .rst .rst-p1, .rst .rst-p2,
     .rst .rst-p3, .rst .rst-p4 {
@@ -62,17 +86,17 @@
       display: table-cell; }
     .rst .rst-alt-p1 {
       display: none; } }
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 30em) {
     .rst .rst-p2 {
       display: table-cell; }
     .rst .rst-alt-p2 {
       display: none; } }
-  @media screen and (min-width: 50em) {
+  @media screen and (min-width: 40em) {
     .rst .rst-p3 {
       display: table-cell; }
     .rst .rst-alt-p3 {
       display: none; } }
-  @media screen and (min-width: 60em) {
+  @media screen and (min-width: 50em) {
     .rst .rst-p4 {
       display: table-cell; }
     .rst .rst-alt-p4 {

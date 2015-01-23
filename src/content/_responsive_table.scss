@@ -3,11 +3,23 @@
   border-spacing: 0;
   width: 100%;
 
+  thead tr th {
+    border: none;
+  }
+
   tbody tr {
     td {
       position: relative;
       white-space: nowrap;
       z-index: 10;
+
+      &:first-child {
+        border-left: 1px solid $table-border-color;
+      }
+
+      &:last-child, &.select-col {
+        border-right: 1px solid $table-border-color;
+      }
 
       &.action-col {
         background-color: #ffffff;
@@ -32,6 +44,17 @@
         z-index: 30;
       }
     }
+
+    &:nth-last-child(2) td:not(.spacer) {
+      border-bottom: 1px solid $table-border-color;
+    }
+
+    &:last-child {
+      td.detail {
+        border-top: none;
+        border-bottom: 1px solid $table-border-color;
+      }
+    }
   }
 
   .select-col {
@@ -43,17 +66,26 @@
   &.rst-expandable {
     tbody {
       tr {
-        &:nth-child(3n+2) {
+        &.detail-row td.detail {
           display: none;
         }
 
-        &.expanded + tr {
-          display: table-row;
+        &.expanded + tr td.detail {
+          display: table-cell;
+        }
+
+        &:nth-last-child(3).expanded + tr td.detail {
+          border-bottom: none;
+        }
+
+        &:nth-last-child(2).expanded + tr td.detail {
+          border-bottom: 1px solid $table-border-color;
         }
       }
     }
 
     .expander {
+      cursor: pointer;
       max-width: 1.5em;
       width: 1.5em;
     }
@@ -97,6 +129,28 @@
     }
   }
 
+  &.modern {
+    tbody tr {
+      td {
+        border: none;
+
+        &:not(.detail) {
+          border-top: 1px solid $table-border-color;
+        }
+      }
+
+      &.expanded {
+        td {
+          border-bottom: none;
+        }
+
+        &:nth-last-child(2) td:last-child[rowspan='2'] {
+          border-bottom: 1px solid $table-border-color;
+        }
+      }
+    }
+  }
+
   @media only all {
     .rst-p1, .rst-p2,
     .rst-p3, .rst-p4 {
@@ -119,7 +173,7 @@
     }
   }
 
-  @media screen and (min-width:40em) {
+  @media screen and (min-width:30em) {
     .rst-p2 {
       display: table-cell;
     }
@@ -129,7 +183,7 @@
     }
   }
 
-  @media screen and (min-width:50em) {
+  @media screen and (min-width:40em) {
     .rst-p3 {
       display: table-cell;
     }
@@ -139,7 +193,7 @@
     }
   }
 
-  @media screen and (min-width:60em) {
+  @media screen and (min-width:50em) {
     .rst-p4 {
       display: table-cell;
     }

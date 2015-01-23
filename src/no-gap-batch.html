@@ -40,10 +40,10 @@
           <td class="rst-p3">{{ row.ephemeralDisk }}</td>
           <td class="rst-p3">{{ row.isPublic }}</td>
           <td class="rst-p1 action-col" rowspan="2">
-            <button type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i> Launch Instance</button>
+            <button type="button" class="btn btn-default btn-xs">Launch Instance</button>
           </td>
         </tr>
-        <tr>
+        <tr class="detail-row" ng-repeat-end>
           <td class="detail" colspan="10">
             <h5>Description</h5>
             <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
@@ -73,7 +73,6 @@
             </div>
           </td>
         </tr>
-        <tr ng-repeat-end><td class="spacer" colspan="10"></td></tr>
       </tbody>
     </table>
   </div>
