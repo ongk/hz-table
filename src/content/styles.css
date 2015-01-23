@@ -4,6 +4,12 @@
   width: 100%; }
   .rst thead tr th {
     border: none; }
+  .rst tbody tr[lr-drag-src] td:not(.expander) {
+    cursor: move; }
+  .rst tbody tr.lr-drop-target-before td {
+    border-top: 2px solid #1f83c6; }
+  .rst tbody tr.lr-drop-target-after td {
+    border-bottom: 2px solid #1f83c6; }
   .rst tbody tr td {
     position: relative;
     white-space: nowrap;
@@ -29,6 +35,20 @@
       padding: 0;
       position: relative;
       z-index: 30; }
+    .rst tbody tr td.numeric {
+      text-align: right; }
+    .rst tbody tr td.reorder {
+      border-right: 1px solid #cccccc;
+      padding-right: 22px;
+      position: relative; }
+      .rst tbody tr td.reorder:after {
+        content: '\f07d';
+        display: inline-block;
+        font-family: 'FontAwesome';
+        position: absolute;
+        right: 0;
+        text-align: left;
+        width: 15px; }
   .rst tbody tr:nth-last-child(2) td:not(.spacer) {
     border-bottom: 1px solid #cccccc; }
   .rst tbody tr:last-child td.detail {

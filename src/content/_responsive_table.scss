@@ -8,6 +8,18 @@
   }
 
   tbody tr {
+    &[lr-drag-src] td:not(.expander) {
+      cursor: move;
+    }
+
+    &.lr-drop-target-before td {
+      border-top: 2px solid #1f83c6;
+    }
+
+    &.lr-drop-target-after td {
+      border-bottom: 2px solid #1f83c6;
+    }
+
     td {
       position: relative;
       white-space: nowrap;
@@ -42,6 +54,26 @@
         padding: 0;
         position: relative;
         z-index: 30;
+      }
+
+      &.numeric {
+        text-align: right;
+      }
+
+      &.reorder {
+        border-right: 1px solid $table-border-color;
+        padding-right: 22px;
+        position: relative;
+
+        &:after {
+          content: '\f07d';
+          display: inline-block;
+          font-family: 'FontAwesome';
+          position: absolute;
+          right: 0;
+          text-align: left;
+          width: 15px;
+        }
       }
     }
 
