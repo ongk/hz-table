@@ -22,7 +22,7 @@ example of responsive table with selection column and gaps in between rows
 #### modern-no-gap-batch.html
 example of responsive table with "modern" look, selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
 
-## Table Classes
+### Table Classes
 * table-rsp - responsive table
 * table-detail - responsive table with detail rows
 * modern - responsive table with "modern" look
