@@ -23,13 +23,13 @@ example of responsive table with selection column and gaps in between rows
 example of responsive table with "modern" look, selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
 
 ## Table Classes
-table-rsp - responsive table
-table-detail - responsive table with detail rows
-modern - responsive table with "modern" look
+* table-rsp - responsive table
+* table-detail - responsive table with detail rows
+* modern - responsive table with "modern" look
 
 ### Other Classes
-detail-row - assign to row (`<tr>`) containing details
-detail - assign to column (`<td>`) containing details
-select-col - assign to column containing selection input
-expander - assign to column containing expand icon
-action-col - assign to column containing action button(s)
+* detail-row - assign to row (`<tr>`) containing details
+* detail - assign to column (`<td>`) containing details
+* select-col - assign to column containing selection input
+* expander - assign to column containing expand icon
+* action-col - assign to column containing action button(s)
