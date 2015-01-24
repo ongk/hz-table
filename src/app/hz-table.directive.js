@@ -43,14 +43,6 @@
           $scope.numSelected -= 1;
         }
       }
-
-      this.setValue = function(row, key, value) {
-        // set new value on $scope?
-      }
-
-      this.setOrder = function() {
-        // set new ordering
-      }
     }
   }
 

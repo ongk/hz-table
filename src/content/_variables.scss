@@ -1,4 +1,10 @@
-$table-border-color: #cccccc;
-$table-gap-height: 0.5em;
+/* Default Variables for Responsive Tables */
 $batch-action-width: 10em;
 $batch-action-padding: $batch-action-width + 1em;
+$detail-row-padding: 1em;
+$expander-width: 1.5em;
+$select-col-width: 2.5em;
+$table-border-color: #cccccc;
+$table-border: 1px solid $table-border-color;
+$table-gap-height: 0.5em;
+$table-padding: 0.5em;

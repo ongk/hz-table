@@ -14,33 +14,33 @@
 </head>
 <body ng-app="hz.widgets.table" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px;">
-    <table st-table="rowCollection" hz-table class="table rst rst-expandable rst-batch-action">
+    <table st-table="rowCollection" hz-table class="table-rsp table-detail">
       <thead>
         <tr>
           <th class="select-col"><input type="checkbox" hz-select-all="rowCollection" ng-checked="numSelected === rowCollection.length"/></th>
-          <th class="rst-p1 expander"></th>
-          <th class="rst-p1">Name</th>
-          <th class="rst-p2">VCPUs</th>
-          <th class="rst-p2">RAM</th>
-          <th class="rst-p2">Total Disk</th>
-          <th class="rst-p3">Root Disk</th>
-          <th class="rst-p3">Ephemeral Disk</th>
-          <th class="rst-p3">Public</th>
-          <th class="rst-p1"></th>
+          <th class="expander"></th>
+          <th class="rsp-p1">Name</th>
+          <th class="rsp-p2">VCPUs</th>
+          <th class="rsp-p2">RAM</th>
+          <th class="rsp-p2">Total Disk</th>
+          <th class="rsp-p3">Root Disk</th>
+          <th class="rsp-p3">Ephemeral Disk</th>
+          <th class="rsp-p3">Public</th>
+          <th class="action-col"></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat-start="row in rowCollection" lr-drag-src="reorder" lr-drop-target="reorder">
           <td class="select-col"><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
-          <td class="rst-p1 expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
-          <td class="rst-p1">{{ row.name }}</td>
-          <td class="rst-p2 reorder">{{ row.vcpus }}</td>
-          <td class="rst-p2">{{ row.ram }}</td>
-          <td class="rst-p2">{{ row.totalDisk }}</td>
-          <td class="rst-p3">{{ row.rootDisk }}</td>
-          <td class="rst-p3">{{ row.ephemeralDisk }}</td>
-          <td class="rst-p3">{{ row.isPublic }}</td>
-          <td class="rst-p1 action-col" rowspan="2">
+          <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
+          <td class="rsp-p1">{{ row.name }}</td>
+          <td class="rsp-p2 reorder">{{ row.vcpus }}</td>
+          <td class="rsp-p2">{{ row.ram }}</td>
+          <td class="rsp-p2">{{ row.totalDisk }}</td>
+          <td class="rsp-p3">{{ row.rootDisk }}</td>
+          <td class="rsp-p3">{{ row.ephemeralDisk }}</td>
+          <td class="rsp-p3">{{ row.isPublic }}</td>
+          <td class="action-col" rowspan="2">
             <button type="button" class="btn btn-default btn-xs">Launch Instance</button>
           </td>
         </tr>
@@ -61,8 +61,8 @@
                   <div>
                     <strong>Version:</strong> 7.0.1
                     <strong>Admin User:</strong> admin
-                    <span class="rst-p2"><strong>VCPUs:</strong> {{ row.vcpus }} <strong>RAM:</strong> {{ row.ram }} <strong>Total Disk:</strong> {{ row.totalDisk }}</span>
-                    <span class="rst-p3"><strong>Root Disk:</strong> {{ row.rootDisk }} <strong>Ephemeral Disk:</strong> {{ row.ephemeralDisk }} <strong>Public:</strong> {{ row.isPublic }}</span>
+                    <span class="rsp-alt-p2"><strong>VCPUs:</strong> {{ row.vcpus }} <strong>RAM:</strong> {{ row.ram }} <strong>Total Disk:</strong> {{ row.totalDisk }}</span>
+                    <span class="rsp-alt-p3"><strong>Root Disk:</strong> {{ row.rootDisk }} <strong>Ephemeral Disk:</strong> {{ row.ephemeralDisk }} <strong>Public:</strong> {{ row.isPublic }}</span>
                   </div>
                   <h5>Detail Information</h5>
                   <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
