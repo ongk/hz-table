@@ -8,18 +8,14 @@ To run, simply open any of the HTML files in your browser. There are several ver
  - example of select-all and detail row expansion, Bootstrap table style
 * no-gap.html
  - example of responsive table with no gaps in between rows
-
-##### no-gap-batch.html
-example of responsive table with selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
-
-##### with-gap.html
-example of responsive table with gaps in between rows
-
-##### with-gap-batch.html
-example of responsive table with selection column and gaps in between rows
-
-##### modern-no-gap-batch.html
-example of responsive table with "modern" look, selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
+* no-gap-batch.html
+ - example of responsive table with selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
+* with-gap.html
+ - example of responsive table with gaps in between rows
+* with-gap-batch.html
+ - example of responsive table with selection column and gaps in between rows
+* modern-no-gap-batch.html
+ - example of responsive table with "modern" look, selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
 
 ### Table Classes
 * table-rsp - responsive table
