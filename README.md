@@ -4,11 +4,10 @@ Prototypes of responsive tables hooked into smart-table with optional expandable
 
 To run, simply open any of the HTML files in your browser. There are several versions that include/exclude the features described above.
 
-##### ang-example.html
-example of select-all and detail row expansion, Bootstrap table style
-
-##### no-gap.html
-example of responsive table with no gaps in between rows
+* ang-example.html
+ - example of select-all and detail row expansion, Bootstrap table style
+* no-gap.html
+ - example of responsive table with no gaps in between rows
 
 ##### no-gap-batch.html
 example of responsive table with selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
