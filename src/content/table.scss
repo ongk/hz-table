@@ -14,11 +14,11 @@
     }
 
     &.lr-drop-target-before td {
-      border-top: 2px solid #1f83c6;
+      border-top: $reorder-border !important;
     }
 
     &.lr-drop-target-after td {
-      border-bottom: 2px solid #1f83c6;
+      border-bottom: $reorder-border !important;
     }
 
     td {

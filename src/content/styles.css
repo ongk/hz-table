@@ -1,4 +1,4 @@
-/* Defaults for responsive tables */
+/* Default Variables for Responsive Tables */
 .table-rsp {
   border-collapse: separate;
   border-spacing: 0 0.5em;
@@ -9,9 +9,9 @@
   .table-rsp tbody tr[lr-drag-src] td:not(.expander) {
     cursor: move; }
   .table-rsp tbody tr.lr-drop-target-before td {
-    border-top: 2px solid #1f83c6; }
+    border-top: 2px solid #1f83c6 !important; }
   .table-rsp tbody tr.lr-drop-target-after td {
-    border-bottom: 2px solid #1f83c6; }
+    border-bottom: 2px solid #1f83c6 !important; }
   .table-rsp tbody tr td {
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
