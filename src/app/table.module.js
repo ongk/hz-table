@@ -14,7 +14,9 @@
     ];
 
     $scope.addRow = function() {
-      var large = { id: 'm1.enormous', name: 'm1.enormous', vcpus: '1', ram: '4096 MB', totalDisk: '40 GB', rootDisk: '40 GB', ephemeralDisk: '0 GB', isPublic: 'Yes' };
+      var randomId = Math.round(Math.random() * 100000);
+      var name = 'm1.' + randomId;
+      var large = { id: randomId, name: name, vcpus: '1', ram: '4096 MB', totalDisk: '40 GB', rootDisk: '40 GB', ephemeralDisk: '0 GB', isPublic: 'Yes' };
       $scope.rowCollection.push(large);
     }
   };

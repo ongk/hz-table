@@ -60,7 +60,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="row in rowCollection">
+        <tr ng-repeat="row in rowCollection track by row.id">
           <td><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
           <td>{{ row.name }}</td>
           <td>{{ row.vcpus }}</td>
