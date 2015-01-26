@@ -34,6 +34,7 @@
     }
 
     td {
+      background-color: #ffffff;
       border-top: $table-border;
       border-bottom: $table-border;
       padding: $table-padding;
@@ -58,7 +59,6 @@
   }
 
   .action-col {
-    background-color: #ffffff;
     position: relative;
     text-align: center;
     vertical-align: top;
@@ -160,7 +160,7 @@
     }
 
     .spacer {
-      background-color: #ffffff;
+      background-color: inherit;
       border: none;
       height: $table-gap-height;
       padding: 0;
@@ -207,7 +207,7 @@
     }
   }
 
-  @media screen and (min-width:40em) {
+  @media screen and (min-width:50em) {
     .rsp-p3 {
       display: table-cell;
     }
@@ -217,7 +217,7 @@
     }
   }
 
-  @media screen and (min-width:50em) {
+  @media screen and (min-width:70em) {
     .rsp-p4 {
       display: table-cell;
     }

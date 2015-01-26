@@ -4,6 +4,16 @@
   var app = angular.module('hz.widgets.table', [ 'ngAnimate', 'smart-table', 'lrDragNDrop' ]);
 
   function MainCtrl($scope) {
+    $scope.rowHeaders = [
+      { label: 'Name', key: 'name', priority: '1' },
+      { label: 'VCPUs', key: 'vcpus', priority: '2' },
+      { label: 'RAM', key: 'ram', priority: '2' },
+      { label: 'Total Disk', key: 'totalDisk', priority: '2' },
+      { label: 'Root Disk', key: 'rootDisk', priority: '3' },
+      { label: 'Ephemeral Disk', key: 'ephemeralDisk', priority: '3' },
+      { label: 'Public', key: 'isPublic', priority: '4' }
+    ];
+
     $scope.rowCollection = [
         { id: 'm1.nano', name: 'm1.nano', vcpus: '2', ram: '64 MB', totalDisk: '0 GB', rootDisk: '0 GB', ephemeralDisk: '0 GB', isPublic: 'Yes' },
         { id: 'm1.small', name: 'm1.small', vcpus: '1', ram: '2048 MB', totalDisk: '20 GB', rootDisk: '20 GB', ephemeralDisk: '0 GB', isPublic: 'Yes' },

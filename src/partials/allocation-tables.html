@@ -1,0 +1,55 @@
+<h5 class="page-header">Allocated to Instance <span class="badge badge-info">{{ allocated.length ? allocated.length : '' }}</span></h5>
+<div class="well">
+  <div class="select-help" ng-show="allocated.length === 0">Select a flavor from Available Flavors below</div>
+  <table st-table="allocated" hz-table class="table-rsp table-detail" ng-show="allocated.length">
+    <thead>
+      <tr>
+        <th class="expander"></th>
+        <th ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ header.label }}</th>
+        <th class="action-col" ng-if="maxAllocation > 1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-start="row in allocated track by row.id">
+        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
+        <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
+        <td class="action-col" ng-if="maxAllocation > 1"><button type="button" class="btn btn-default btn-xs" ng-click="deallocate($index)"><i class="fa fa-minus"></i></button></td>
+      </tr>
+      <tr class="detail-row">
+        <td class="detail" colspan="10">
+          <h5>Description</h5>
+          <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
+        </td>
+      </tr>
+      <tr ng-repeat-end><td class="spacer" colspan="10"></td></tr>
+    </tbody>
+  </table>
+</div>
+<h5 class="page-header">Available <span class="badge badge-info">{{ available.length ? available.length : '' }}</span></h5>
+<div class="well" style="background-color: transparent; border: none;">
+  <table st-table="available" hz-table class="table-rsp table-detail">
+    <thead>
+      <tr>
+        <th class="expander"></th>
+        <th ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ header.label }}</th>
+        <th class="action-col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-start="row in available track by row.id">
+        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
+        <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
+        <td class="action-col">
+          <button type="button" class="btn btn-default btn-xs" ng-click="allocate($index)"><i class="fa fa-plus"></i></button>
+        </td>
+      </tr>
+      <tr class="detail-row">
+        <td class="detail" colspan="10">
+          <h5>Description</h5>
+          <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
+        </td>
+      </tr>
+      <tr ng-repeat-end><td class="spacer" colspan="10"></td></tr>
+    </tbody>
+  </table>
+</div>
