@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('hz.widgets.table', [ 'smart-table', 'lrDragNDrop' ]);
+  var app = angular.module('hz.widgets.table', [ 'ngAnimate', 'smart-table', 'lrDragNDrop' ]);
 
   function MainCtrl($scope) {
     $scope.rowCollection = [

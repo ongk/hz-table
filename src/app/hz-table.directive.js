@@ -10,6 +10,7 @@
   function hzTable() {
     var defObj = {
       restrict: 'A',
+      scope: true,
       controller: hzTableController
     };
 

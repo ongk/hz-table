@@ -1,4 +1,11 @@
 /* Default Variables for Responsive Tables */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    line-height: 0; }
+  to {
+    opacity: 1;
+    line-height: inherit; } }
 .table-rsp {
   border-collapse: separate;
   border-spacing: 0 0.5em;
@@ -78,7 +85,12 @@
       padding-right: 11em;
       white-space: normal; }
     .table-rsp.table-detail .expanded + tr .detail {
+      animation-duration: 1s;
+      animation-name: slide-down;
       display: table-cell; }
+    .table-rsp.table-detail .animate-show {
+      animation-duration: 1s;
+      animation-name: slide-up; }
     .table-rsp.table-detail .expander {
       cursor: pointer;
       max-width: 1.5em;
