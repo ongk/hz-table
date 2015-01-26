@@ -20,6 +20,7 @@
   .table-rsp tbody tr.lr-drop-target-after td {
     border-bottom: 2px solid #1f83c6 !important; }
   .table-rsp tbody tr td {
+    background-color: #ffffff;
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
     padding: 0.5em;
@@ -35,7 +36,6 @@
     text-align: center;
     width: 2.5em; }
   .table-rsp .action-col {
-    background-color: #ffffff;
     position: relative;
     text-align: center;
     vertical-align: top;
@@ -96,7 +96,7 @@
       max-width: 1.5em;
       width: 1.5em; }
     .table-rsp.table-detail .spacer {
-      background-color: #ffffff;
+      background-color: inherit;
       border: none;
       height: 0.5em;
       padding: 0;
@@ -121,12 +121,12 @@
       display: table-cell; }
     .table-rsp .rsp-alt-p2 {
       display: none; } }
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 50em) {
     .table-rsp .rsp-p3 {
       display: table-cell; }
     .table-rsp .rsp-alt-p3 {
       display: none; } }
-  @media screen and (min-width: 50em) {
+  @media screen and (min-width: 70em) {
     .table-rsp .rsp-p4 {
       display: table-cell; }
     .table-rsp .rsp-alt-p4 {
