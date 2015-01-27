@@ -1,6 +1,6 @@
 # Responsive Table
 
-Prototypes of responsive tables hooked into smart-table with optional expandable detail rows, selection column, and action column. Columns are assigned a priority and those with lower priorities are hidden as the window width becomes narrower. If implement, selection and action columns are always visible.
+Prototypes of responsive tables hooked into smart-table with optional expandable detail rows, selection column, and action column. Columns are assigned a priority and those with lower priorities are hidden as the window width becomes narrower. If implemented, selection and action columns are always visible.
 
 To run, simply open any of the HTML files in your browser. There are several versions that include/exclude the features described above.
 
