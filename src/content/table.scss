@@ -1,4 +1,4 @@
-@keyframes slide-down {
+@mixin slide-down-transition {
   from {
     opacity: 0;
     line-height: 0;
@@ -8,6 +8,18 @@
     opacity: 1;
     line-height: inherit;
   }
+}
+
+@keyframes slide-down {
+  @include slide-down-transition;
+}
+
+@-webkit-keyframes slide-down {
+  @include slide-down-transition;
+}
+
+@-o-keyframes slide-down {
+  @include slide-down-transition;
 }
 
 .table-rsp {
@@ -146,11 +158,10 @@
       animation-duration: 1s;
       animation-name: slide-down;
       display: table-cell;
-    }
-
-    .animate-show {
-      animation-duration: 1s;
-      animation-name: slide-up;
+      -o-animation-duration: 1s;
+      -o-animation-name: slide-down;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-name: slide-down;
     }
 
     .expander {

@@ -6,6 +6,20 @@
   to {
     opacity: 1;
     line-height: inherit; } }
+@-webkit-keyframes slide-down {
+  from {
+    opacity: 0;
+    line-height: 0; }
+  to {
+    opacity: 1;
+    line-height: inherit; } }
+@-o-keyframes slide-down {
+  from {
+    opacity: 0;
+    line-height: 0; }
+  to {
+    opacity: 1;
+    line-height: inherit; } }
 .table-rsp {
   border-collapse: separate;
   border-spacing: 0 0.5em;
@@ -87,10 +101,11 @@
     .table-rsp.table-detail .expanded + tr .detail {
       animation-duration: 1s;
       animation-name: slide-down;
-      display: table-cell; }
-    .table-rsp.table-detail .animate-show {
-      animation-duration: 1s;
-      animation-name: slide-up; }
+      display: table-cell;
+      -o-animation-duration: 1s;
+      -o-animation-name: slide-down;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-name: slide-down; }
     .table-rsp.table-detail .expander {
       cursor: pointer;
       max-width: 1.5em;
