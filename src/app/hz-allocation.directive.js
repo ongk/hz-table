@@ -29,14 +29,13 @@
       }
 
       this.allocate = function(rowIndex) {
-        var availableRow = $scope.available.splice(rowIndex, 1);
         if ($scope.numAllocated < $scope.maxAllocation) {
-          $scope.allocated.push(availableRow[0]);
+          $scope.allocated.push($scope.available.splice(rowIndex, 1)[0]);
           $scope.numAllocated += 1;
         } else if ($scope.maxAllocation === 1) {
           // swap
           var oldAllocatedRow = $scope.allocated.pop();
-          $scope.allocated.push(availableRow[0]);
+          $scope.allocated.push($scope.available.splice(rowIndex, 1)[0]);
           $scope.available.push(oldAllocatedRow);
         } else {
           alert('Maximum allocations reached. Please de-allocate an item.');
