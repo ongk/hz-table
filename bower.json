@@ -3,11 +3,6 @@
   "version": "0.0.0",
   "description": "Prototypes for Horizon re-designed tables",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components"
-  ],
   "dependencies": {
     "angular-mocks": "~1.3.10",
     "angular-smart-table": "~1.4.8",
