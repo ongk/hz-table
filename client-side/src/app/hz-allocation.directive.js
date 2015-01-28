@@ -8,7 +8,7 @@
   function hzAllocation() {
     var defObj = {
       restrict: 'E',
-      templateUrl: 'partials/allocation-tables.html',
+      templateUrl: 'partials/allocation-tables-single.html',
       scope: {
         headers: '=',
         allocated: '=',
@@ -24,28 +24,76 @@
       $scope.maxAllocation = 1;
       $scope.numAllocated = 0;
 
+      $scope.displayedAllocated = [].concat($scope.allocated);
+
+      $scope.instances = {
+        title: 'Total Instances',
+        data: [
+          { label: 'Current', slice: 1 },
+          { label: 'Applied', slice: 1 },
+          { label: 'Available', slice: 6, showKey: false }
+        ],
+        colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
+        text: '20%'
+      };
+
+      $scope.vcpus = {
+        title: 'Total VCPUs',
+        data: [
+          { label: 'Current', slice: 1 },
+          { label: 'Applied', slice: 1 },
+          { label: 'Available', slice: 6, showKey: false }
+        ],
+        colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
+        text: '30%'
+      };
+
+      $scope.ram = {
+        title: 'Total RAM',
+        data: [
+          { label: 'Current', slice: 2048 },
+          { label: 'Applied', slice: 1024 },
+          { label: 'Available', slice: 10240, showKey: false }
+        ],
+        colors: [ '#1f83c6', '#81c1e7', '#d1d3d4' ],
+        text: '50%'
+      };
+
       this.setMaxAllocation = function(maxAllocation) {
         $scope.maxAllocation = maxAllocation;
       }
 
       this.allocate = function(rowIndex) {
-        if ($scope.numAllocated < $scope.maxAllocation) {
-          $scope.allocated.push($scope.available.splice(rowIndex, 1)[0]);
+        var row = $scope.available[rowIndex];
+        var newRow = angular.copy(row);
+        if ($scope.maxAllocation < 0 || $scope.numAllocated < $scope.maxAllocation) {
+          newRow.aIdx = $scope.numAllocated;
+          $scope.allocated.push(newRow);
           $scope.numAllocated += 1;
+
+          row.allocated = true;
         } else if ($scope.maxAllocation === 1) {
-          // swap
-          var oldAllocatedRow = $scope.allocated.pop();
-          $scope.allocated.push($scope.available.splice(rowIndex, 1)[0]);
-          $scope.available.push(oldAllocatedRow);
+          var oldRowIdx = $scope.allocated[0].idx;
+          $scope.available[oldRowIdx].allocated = false;
+
+          newRow.aIdx = 0;
+          $scope.allocated[0] = newRow;
+
+          row.allocated = true;
         } else {
           alert('Maximum allocations reached. Please de-allocate an item.');
         }
       }
 
       this.deallocate = function(rowIndex) {
-        var allocateRow = $scope.allocated.splice(rowIndex, 1);
-        $scope.available.push(allocateRow[0]);
+        var oldRow = $scope.allocated.splice(rowIndex, 1)[0];
+        $scope.available[oldRow.idx].allocated = false;
         $scope.numAllocated -= 1;
+
+        // update indices
+        for (var idx = rowIndex; idx < $scope.numAllocated; idx++) {
+          $scope.allocated[idx].aIdx -= 1;
+        }
       }
     }
 

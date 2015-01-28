@@ -98,6 +98,38 @@
     text-align: right;
   }
 
+  [st-sort] {
+    cursor: pointer;
+
+    &:after {
+      color: #d4d4d4;
+      content: '\f0dc';
+      font-family: 'FontAwesome';
+      margin-left: 0.5em;
+      opacity: 0;
+    }
+
+    &:not(.st-sort-ascent):hover:after, &:not(.st-sort-descent):hover:after {
+      opacity: 1;
+    }
+  }
+
+  .st-sort-ascent:after {
+    color: #000000;
+    content: '\f0dd';
+    font-family: 'FontAwesome';
+    margin-left: 0.5em;
+    opacity: 1;
+  }
+
+  .st-sort-descent:after {
+    color: #000000;
+    content: '\f0de';
+    font-family: 'FontAwesome';
+    margin-left: 0.5em;
+    opacity: 1;
+  }
+
   &.modern {
     border-spacing: 0;
 

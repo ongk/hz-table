@@ -9,13 +9,14 @@
   <script src="../bower_components/angular/angular.min.js"></script>
   <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+  <script src="app/pie-chart.directive.js"></script>
   <script src="../lib/lrDragNDrop.js"></script>
   <script src="app/table.module.js"></script>
   <script src="app/hz-table.directive.js"></script>
 </head>
 <body ng-app="hz.widgets.table" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px;">
-    <table st-table="rowCollection" hz-table class="table-rsp table-detail modern">
+    <table st-table="rowCollection" hz-table class="table-rsp table-detail">
       <thead>
         <tr>
           <th class="select-col"><input type="checkbox" hz-select-all="rowCollection" ng-checked="numSelected === rowCollection.length"/></th>

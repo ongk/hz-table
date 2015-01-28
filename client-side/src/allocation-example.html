@@ -9,7 +9,9 @@
   <script src="../bower_components/angular/angular.min.js"></script>
   <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+  <script src="../bower_components/d3/d3.min.js"></script>
   <script src="../lib/lrDragNDrop.js"></script>
+  <script src="app/pie-chart.directive.js"></script>
   <script src="app/table.module.js"></script>
   <script src="app/hz-table.directive.js"></script>
   <script src="app/hz-allocation.directive.js"></script>
@@ -30,19 +32,22 @@
     .help-text {
       font-size: 1em;
     }
+    pie-chart {
+      padding-left: 20px;
+    }
+    #available {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      padding-top: 0;
+      max-height: 25em;
+      overflow-y: auto;
+    }
   </style>
 </head>
 <body ng-app="hz.widgets.table" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px 40px;">
     <h4 class="page-header">Select a Flavor</h4>
-    <div class="form-group">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <span class="input-group-btn">
-          <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-        </span>
-      </div>
-    </div>
     <hz-allocation headers="rowHeaders" allocated="[]" available="rowCollection" max-allocation="1"></hz-allocation>
   </div>
 </body>

@@ -10,6 +10,7 @@
   <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
   <script src="../lib/lrDragNDrop.js"></script>
+  <script src="app/pie-chart.directive.js"></script>
   <script src="app/table.module.js"></script>
   <script src="app/hz-table.directive.js"></script>
 </head>
@@ -33,7 +34,7 @@
         <tr ng-repeat="row in rowCollection track by row.id">
           <td class="select-col"><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
           <td class="rsp-p1">{{ row.name }}</td>
-          <td class="rsp-p2 reorder">{{ row.vcpus }}</td>
+          <td class="rsp-p2">{{ row.vcpus }}</td>
           <td class="rsp-p2">{{ row.ram }}</td>
           <td class="rsp-p2">{{ row.totalDisk }}</td>
           <td class="rsp-p3">{{ row.rootDisk }}</td>
