@@ -1,0 +1,67 @@
+<h5 class="page-header"><i class="fa {{ views.allocated ? 'fa-chevron-down' : 'fa-chevron-right' }}" ng-click="toggleView('allocated')"></i> Allocated to Instance <span class="badge badge-info">{{ allocated.length ? allocated.length : '' }}</span><small class="pull-right help-text">Select a single flavor</small></h5>
+<div id="allocated" class="well" ng-show="views.allocated">
+  <div class="select-help" ng-show="allocated.length === 0">Select a flavor from Available Flavors below</div>
+  <table st-table="allocated" hz-table class="table-rsp table-detail">
+    <thead ng-show="allocated.length">
+      <tr>
+        <th class="expander"></th>
+        <th ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ header.label }}</th>
+        <th class="action-col" ng-if="maxAllocation !== 1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-start="row in allocated track by row.id" class="expanded" lr-drag-data="allocated" lr-drag-src="reorder" lr-drop-target="reorder" lr-drop-success="updateIndexes(e, item)">
+        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
+        <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
+        <td class="action-col" ng-if="maxAllocation !== 1"><button type="button" class="btn btn-default btn-xs" ng-click="deallocate(row)"><i class="fa fa-minus"></i></button></td>
+      </tr>
+      <tr class="detail-row">
+        <td class="detail" colspan="10">
+          <h5>Impact on your quota</h5>
+          <pie-chart chart-data="instances" chart-inner-radius="28"></pie-chart>
+          <pie-chart chart-data="vcpus" chart-inner-radius="28"></pie-chart>
+          <pie-chart chart-data="ram" chart-inner-radius="28"></pie-chart>
+          <h5>Description</h5>
+          <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
+        </td>
+      </tr>
+      <tr ng-repeat-end><td class="spacer" colspan="10"></td></tr>
+    </tbody>
+  </table>
+</div>
+<h5 class="page-header"><i class="fa {{ views.available ? 'fa-chevron-down' : 'fa-chevron-right' }}" ng-click="toggleView('available')"></i> Available <span class="badge badge-info">{{ available.length ? available.length : '' }}</span></h5>
+<div id="available" class="well" ng-show="views.available">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search">
+        <span class="input-group-btn">
+        <button class="btn btn-info" type="button"><i class="fa fa-search"></i></button>
+      </span>
+    </div>
+  </div>
+  <table st-table="available" hz-table class="table-rsp table-detail">
+    <thead>
+      <tr>
+        <th class="expander"></th>
+        <th ng-repeat="header in headers" class="rsp-p{{ header.priority }}" st-sort="{{ header.key }}" st-sort-default="{{ header.key === 'vcpus' ? 'vcpus' : '' }}">{{ header.label }}</th>
+        <th class="action-col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat-start="row in available track by row.id" ng-hide="row.allocated">
+        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
+        <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
+        <td class="action-col">
+          <button type="button" class="btn btn-default btn-xs" ng-click="allocate(row)"><i class="fa fa-plus"></i></button>
+        </td>
+      </tr>
+      <tr class="detail-row" ng-hide="row.allocated">
+        <td class="detail" colspan="10">
+          <h5>Description</h5>
+          <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
+        </td>
+      </tr>
+      <tr ng-repeat-end ng-hide="row.allocated"><td class="spacer" colspan="10"></td></tr>
+    </tbody>
+  </table>
+</div>

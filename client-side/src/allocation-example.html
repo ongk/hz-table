@@ -16,8 +16,8 @@
   <script src="app/hz-table.directive.js"></script>
   <script src="app/hz-allocation.directive.js"></script>
   <style type="text/css">
-    .badge.badge-info {
-      background-color: #337ab7;
+    .badge.badge-info, .btn.btn-info {
+      background-color: #0084d1;
     }
     .action-col {
       width: 2.5em !important;
@@ -40,8 +40,12 @@
       border: none;
       box-shadow: none;
       padding-top: 0;
-      max-height: 420px;
+      max-height: 20em;
       overflow-y: auto;
+    }
+    .fa-chevron-right, .fa-chevron-down {
+      cursor: pointer;
+      margin-right: 5px;
     }
   </style>
 </head>
