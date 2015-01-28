@@ -76,6 +76,10 @@
     vertical-align: top;
     width: $batch-action-width;
     z-index: 20;
+
+    .btn {
+      width: 100%;
+    }
   }
 
   .reorder {

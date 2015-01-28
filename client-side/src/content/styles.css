@@ -55,6 +55,8 @@
     vertical-align: top;
     width: 10em;
     z-index: 20; }
+    .table-rsp .action-col .btn {
+      width: 100%; }
   .table-rsp .reorder {
     border-right: 1px solid #cccccc;
     padding-right: 1.5em;

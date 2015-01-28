@@ -51,7 +51,9 @@
     var defObj = {
       restrict: 'A',
       require: '^hzTable',
-      scope: { rows: '=hzSelectAll' },
+      scope: {
+        rows: '=hzSelectAll'
+      },
       link: link
     };
 

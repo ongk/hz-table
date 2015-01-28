@@ -8,7 +8,9 @@
   function hzAllocation() {
     var defObj = {
       restrict: 'E',
-      templateUrl: 'partials/transfer-tables-single.html',
+      templateUrl: function(elem, attrs) {
+        return 'partials/' + attrs.version + '.html';
+      },
       scope: {
         headers: '=',
         allocated: '=',

@@ -52,7 +52,18 @@
 <body ng-app="hz.widgets.table" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 0px 40px 10px;">
     <h4 class="page-header">Select a Flavor</h4>
-    <hz-allocation headers="rowHeaders" allocated="[]" available="rowCollection" max-allocation="1"></hz-allocation>
+
+    <!-- Single allocation -->
+    <!-- <hz-allocation headers="rowHeaders" allocated="[]" available="rowCollection" version="single" max-allocation="1"></hz-allocation> -->
+
+    <!-- Max of 3 allocations, both tables sortable -->
+    <hz-allocation headers="rowHeaders" allocated="[]" available="rowCollection" version="multi" max-allocation="3"></hz-allocation>
+
+    <!-- Unlimited number of allocations, both tables sortable -->
+    <!-- <hz-allocation headers="rowHeaders" allocated="[]" available="rowCollection" version="multi" max-allocation="-1"></hz-allocation> -->
+
+    <!-- Unlimited number of allocations (re-orderable, no sort), available table sortable -->
+    <!-- <hz-allocation headers="rowHeaders" allocated="[]" available="rowCollection" version="multi-reorder" max-allocation="-1"></hz-allocation> -->
   </div>
 </body>
 </html>
