@@ -18,6 +18,7 @@ To run, simply open any of the HTML files in your browser. There are several ver
  - example of responsive table with "modern" look, selection column, no gaps in between rows, and drag-n-drop re-ordering of rows
 * allocation-example.html
  - example of allocation tables (adding/removing from one table to another)
+ - to see different versions (single/multi allocation), uncomment out the one you need in this file
 
 ### Table Classes
 * table-rsp - responsive table
