@@ -102,8 +102,10 @@
       border-bottom: 1px solid #cccccc; }
   .table-rsp.table-detail {
     border-spacing: 0; }
-    .table-rsp.table-detail tbody tr:not(:nth-last-child(-n+2)) td {
+    .table-rsp.table-detail tbody tr td {
       border-bottom: none; }
+    .table-rsp.table-detail tbody tr:last-child td:not(.spacer) {
+      border-bottom: 1px solid #cccccc; }
     .table-rsp.table-detail tbody tr.expanded td {
       border-bottom: 1px solid #cccccc; }
       .table-rsp.table-detail tbody tr.expanded td[rowspan='2'].action-col {

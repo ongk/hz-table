@@ -38,16 +38,16 @@
 </head>
 <body ng-app="hz.widgets.table" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px;">
-    <table st-table="rowCollection" hz-table class="table">
+    <table st-table="displayedCollection" st-safe-src="rowCollection" hz-table class="table">
       <thead>
         <tr class="actions-header">
           <th colspan="7">
             <div class="form-inline">
-              <button class="btn btn-primary batch-action" ng-class="{ checked: numSelected }">Batch Action</button>
+              <button class="btn btn-primary batch-action" ng-class="{ checked: numSelected }" ng-click="doSomething(selected)">Batch Action</button>
               <button class="btn btn-primary single-action" ng-class="{ checked: numSelected }" ng-click="addRow()">Create</button>
               <div class="form-group">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Filter">
+                  <input type="text" st-search class="form-control" placeholder="Filter">
                   <span class="input-group-btn">
                     <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
                   </span>
@@ -57,7 +57,7 @@
           </th>
         </tr>
         <tr>
-          <th><input type="checkbox" hz-select-all="rowCollection" ng-checked="numSelected === rowCollection.length"/></th>
+          <th><input type="checkbox" hz-select-all="displayedCollection" ng-checked="numSelected === displayedCollection.length"/></th>
           <th>Name</th>
           <th>VCPUs</th>
           <th>RAM</th>
@@ -68,7 +68,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="row in rowCollection track by row.id">
+        <tr ng-repeat="row in displayedCollection track by row.id">
           <td><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
           <td>{{ row.name }}</td>
           <td>{{ row.vcpus }}</td>

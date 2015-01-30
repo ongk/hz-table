@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var app = angular.module('hz.widgets.table', [ 'ngAnimate', 'smart-table', 'lrDragNDrop', 'hz.widgets.charts' ]);
+  var app = angular.module('hz.widgets.table', [ 'smart-table', 'lrDragNDrop', 'hz.widgets.charts' ]);
 
   function MainCtrl($scope) {
     $scope.rowHeaders = [
@@ -28,6 +28,8 @@
         { idx: 10, id: 'm2.xl', name: 'm2.xl', vcpus: '1', ram: '2048 MB', totalDisk: '20 GB', rootDisk: '20 GB', ephemeralDisk: '0 GB', isPublic: 'Yes' },
         { idx: 11, id: 'm2.xxl', name: 'm2.xxl', vcpus: '1', ram: '4096 MB', totalDisk: '40 GB', rootDisk: '40 GB', ephemeralDisk: '0 GB', isPublic: 'Yes' }
     ];
+
+    $scope.displayedCollection = [];
 
     $scope.addRow = function() {
       var randomId = Math.round(Math.random() * 100000);

@@ -153,8 +153,12 @@
     border-spacing: 0;
 
     tbody {
-      tr:not(:nth-last-child(-n+2)) td {
+      tr td {
         border-bottom: none;
+      }
+
+      tr:last-child td:not(.spacer) {
+        border-bottom: $table-border;
       }
 
       tr.expanded td {
