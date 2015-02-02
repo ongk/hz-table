@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr ng-repeat-start="row in allocated track by row.id" class="expanded" lr-drag-data="allocated" lr-drag-src="reorder" lr-drop-target="reorder" lr-drop-success="updateIndexes(e, item)">
-        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
+        <td class="expander"><i class="fa fa-chevron-down" hz-expand-detail></i></td>
         <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
         <td class="action-col" ng-if="maxAllocation !== 1"><button type="button" class="btn btn-default btn-xs" ng-click="deallocate(row)"><i class="fa fa-minus"></i></button></td>
       </tr>

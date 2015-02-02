@@ -11,9 +11,9 @@
     </thead>
     <tbody>
       <tr ng-repeat-start="row in allocated track by row.id" class="expanded">
-        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
+        <td class="expander"><i class="fa fa-chevron-down" hz-expand-detail></i></td>
         <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
-        <td class="action-col" ng-if="maxAllocation !== 1"><button type="button" class="btn btn-default btn-xs" ng-click="deallocate(row.aIdx)"><i class="fa fa-minus"></i></button></td>
+        <td class="action-col" ng-if="maxAllocation !== 1"><button type="button" class="btn btn-danger btn-xs" ng-click="deallocate(row.aIdx)"><i class="fa fa-minus"></i></button></td>
       </tr>
       <tr class="detail-row">
         <td class="detail" colspan="10">
@@ -52,7 +52,7 @@
         <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
         <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
         <td class="action-col">
-          <button type="button" class="btn btn-default btn-xs" ng-click="allocate(row)"><i class="fa fa-plus"></i></button>
+          <button type="button" class="btn btn-success btn-xs" ng-click="allocate(row)"><i class="fa fa-plus"></i></button>
         </td>
       </tr>
       <tr class="detail-row" ng-hide="row.allocated">
