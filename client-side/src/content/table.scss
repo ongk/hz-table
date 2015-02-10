@@ -1,33 +1,12 @@
-@mixin slide-down-transition {
-  from {
-    opacity: 0;
-    line-height: 0;
-  }
-
-  to {
-    opacity: 1;
-    line-height: inherit;
-  }
-}
-
-@keyframes slide-down {
-  @include slide-down-transition;
-}
-
-@-webkit-keyframes slide-down {
-  @include slide-down-transition;
-}
-
-@-o-keyframes slide-down {
-  @include slide-down-transition;
-}
+$em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
 
 .table-rsp {
   border-collapse: separate;
   border-spacing: 0 $table-gap-height;
   width: 100%;
 
-  thead tr th {
+  thead tr th, tfoot tr td {
+    background: none;
     border: none;
     padding: $table-padding;
   }
@@ -74,6 +53,7 @@
     position: relative;
     text-align: center;
     vertical-align: top;
+    min-width: $batch-action-width;
     width: $batch-action-width;
     z-index: 20;
 
@@ -157,7 +137,7 @@
         border-bottom: none;
       }
 
-      tr:last-child td:not(.spacer) {
+      tr:last-child:not(.spacer-row) td {
         border-bottom: $table-border;
       }
 
@@ -177,31 +157,30 @@
         border-bottom: $table-border;
       }
 
-      tr:nth-last-child(3).expanded + .detail-row + tr .spacer {
+      tr:nth-last-child(3).expanded + .detail-row + tr.spacer-row td {
         border-top: none;
       }
 
-      tr + .detail-row + tr .spacer {
+      tr + .detail-row + tr.spacer-row td {
         border-top: $table-border;
       }
     }
 
-    .detail-row .detail {
-      border-top: none;
+    .detail-row td {
       display: none;
-      padding: $detail-row-padding;
-      padding-right: $batch-action-padding;
-      white-space: normal;
+      padding: 0;
+
+      &.detail .detail-expanded {
+        border-top: none;
+        display: none;
+        padding: $detail-row-padding $batch-action-padding $detail-row-padding $table-padding;
+        white-space: normal;
+      }
     }
 
-    .expanded + tr .detail {
-      animation-duration: 1s;
-      animation-name: slide-down;
+    .expanded + tr td {
+      border-top: none;
       display: table-cell;
-      -o-animation-duration: 1s;
-      -o-animation-name: slide-down;
-      -webkit-animation-duration: 1s;
-      -webkit-animation-name: slide-down;
     }
 
     .expander {
@@ -210,7 +189,7 @@
       width: $expander-width;
     }
 
-    .spacer {
+    .spacer-row td {
       background-color: inherit;
       border: none;
       height: $table-gap-height;
@@ -219,9 +198,35 @@
       z-index: 30;
     }
 
+    &.table-striped {
+      tbody {
+        tr {
+          &:nth-child(2n+1) > td, &:nth-child(2n+1) + .detail-row > td {
+            background-color: $table-stripe-bgcolor;
+          }
+
+          &.spacer-row > td {
+            background-color: transparent;
+          }
+
+          &.spacer-row:nth-child(6n+3) + tr + tr.detail-row td,
+          &.detail-row:nth-child(4n+2) + tr:not(.spacer-row) td,
+          &.detail-row:nth-child(4n+2) + tr:not(.spacer-row) + tr.detail-row td {
+            background-color: #ffffff;
+          }
+        }
+      }
+    }
+
     &.modern {
-      .expanded td:not(.action-col), .expanded td.action-col:not([rowspan='2']) {
-        border-bottom: none;
+      .expanded + tr td {
+        border-top: $table-border;
+      }
+
+      .expanded {
+        td:not(.action-col), td.action-col:not([rowspan='2']) {
+          border-bottom: none;
+        }
       }
     }
   }
@@ -238,7 +243,23 @@
     }
   }
 
-  @media screen and (min-width:20em) {
+  @media (min-width: 0em) {
+    $content-width: $body-min-width - $sidebar-width - (2 * $content-body-padding);
+    $max-priority: floor($content-width / $font-size-base / $em-per-priority);
+
+    @for $i from 1 through $max-priority {
+      .rsp-p#{$i} {
+        display: table-cell;
+      }
+
+      .rsp-alt-p#{$i} {
+        display: none;
+      }
+    }
+  }
+
+  $p1-width: 5em + $em-per-priority * 1em;
+  @media (min-width: $p1-width) {
     .rsp-p1 {
       display: table-cell;
     }
@@ -248,7 +269,8 @@
     }
   }
 
-  @media screen and (min-width:30em) {
+  $p2-width: 5em + $em-per-priority * 2em;
+  @media (min-width: $p2-width) {
     .rsp-p2 {
       display: table-cell;
     }
@@ -258,7 +280,8 @@
     }
   }
 
-  @media screen and (min-width:50em) {
+  $p3-width: 5em + $em-per-priority * 3em;
+  @media (min-width: $p3-width) {
     .rsp-p3 {
       display: table-cell;
     }
@@ -268,7 +291,8 @@
     }
   }
 
-  @media screen and (min-width:70em) {
+  $p4-width: 5em + $em-per-priority * 4em;
+  @media (min-width: $p4-width) {
     .rsp-p4 {
       display: table-cell;
     }

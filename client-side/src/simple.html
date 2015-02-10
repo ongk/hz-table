@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="content/styles.css" rel="stylesheet"/>
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -11,21 +11,21 @@
   <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
   <script src="../lib/lrDragNDrop.js"></script>
   <script src="app/pie-chart.directive.js"></script>
-  <script src="app/table.module.js"></script>
   <script src="app/hz-table.directive.js"></script>
+  <script src="app/table.module.js"></script>
 </head>
-<body ng-app="hz.widgets.table" ng-controller="MainCtrl">
+<body ng-app="hz.dashboard" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px;">
     <table st-table="rowCollection" hz-table class="table-rsp">
       <thead>
         <tr>
           <th class="select-col"><input type="checkbox" hz-select-all="rowCollection" ng-checked="numSelected === rowCollection.length"/></th>
           <th class="rsp-p1">Name</th>
-          <th class="rsp-p2">VCPUs</th>
-          <th class="rsp-p2">RAM</th>
-          <th class="rsp-p2">Total Disk</th>
-          <th class="rsp-p3">Root Disk</th>
-          <th class="rsp-p3">Ephemeral Disk</th>
+          <th class="rsp-p1">VCPUs</th>
+          <th class="rsp-p1">RAM</th>
+          <th class="rsp-p1">Total Disk</th>
+          <th class="rsp-p2">Root Disk</th>
+          <th class="rsp-p2">Ephemeral Disk</th>
           <th class="rsp-p3">Public</th>
           <th class="action-col"></th>
         </tr>
@@ -34,11 +34,11 @@
         <tr ng-repeat="row in rowCollection track by row.id">
           <td class="select-col"><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
           <td class="rsp-p1">{{ row.name }}</td>
-          <td class="rsp-p2">{{ row.vcpus }}</td>
-          <td class="rsp-p2">{{ row.ram }}</td>
-          <td class="rsp-p2">{{ row.totalDisk }}</td>
-          <td class="rsp-p3">{{ row.rootDisk }}</td>
-          <td class="rsp-p3">{{ row.ephemeralDisk }}</td>
+          <td class="rsp-p1">{{ row.vcpus }}</td>
+          <td class="rsp-p1">{{ row.ram }}</td>
+          <td class="rsp-p1">{{ row.totalDisk }}</td>
+          <td class="rsp-p2">{{ row.rootDisk }}</td>
+          <td class="rsp-p2">{{ row.ephemeralDisk }}</td>
           <td class="rsp-p3">{{ row.isPublic }}</td>
           <td class="action-col">
             <button type="button" class="btn btn-default btn-xs">Launch Instance</button>

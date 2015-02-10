@@ -1,7 +1,7 @@
 <h5 class="page-header"><i class="fa {{ views.allocated ? 'fa-chevron-down' : 'fa-chevron-right' }}" ng-click="toggleView('allocated')"></i> Allocated to Instance <span class="badge badge-info">{{ allocated.length ? allocated.length : '' }}</span><small class="pull-right help-text">Select a single flavor</small></h5>
 <div id="allocated" class="well" ng-show="views.allocated">
   <div class="select-help" ng-show="allocated.length === 0">Select a flavor from Available Flavors below</div>
-  <table st-table="displayedAllocated" st-safe-src="allocated" hz-table class="table-rsp table-detail">
+  <table st-table="displayedAllocated" st-safe-src="allocated" hz-table class="table-striped table-rsp table-detail modern">
     <thead ng-show="allocated.length">
       <tr>
         <th class="expander"></th>
@@ -10,13 +10,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat-start="row in displayedAllocated track by row.id" class="expanded">
-        <td class="expander"><i class="fa fa-chevron-down" hz-expand-detail></i></td>
+      <tr ng-repeat-start="row in displayedAllocated track by row.id">
+        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
         <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
         <td class="action-col" ng-if="maxAllocation !== 1"><button type="button" class="btn btn-danger btn-xs" ng-click="deallocate(row)"><i class="fa fa-minus"></i></button></td>
       </tr>
-      <tr class="detail-row">
-        <td class="detail" colspan="10">
+      <tr ng-repeat-end class="detail-row">
+        <td></td>
+        <td class="detail" colspan="9">
           <h5>Impact on your quota</h5>
           <pie-chart chart-data="instances" chart-inner-radius="28"></pie-chart>
           <pie-chart chart-data="vcpus" chart-inner-radius="28"></pie-chart>
@@ -25,7 +26,7 @@
           <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
         </td>
       </tr>
-      <tr ng-repeat-end><td class="spacer" colspan="10"></td></tr>
+      <!-- <tr ng-repeat-end class="spacer-row"><td colspan="10"></td></tr> -->
     </tbody>
   </table>
 </div>
@@ -39,7 +40,7 @@
       </span>
     </div>
   </div>
-  <table st-table="available" hz-table class="table-rsp table-detail">
+  <table st-table="available" hz-table class="table-striped table-rsp table-detail modern">
     <thead>
       <tr>
         <th class="expander"></th>
@@ -48,20 +49,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat-start="row in available track by row.id" ng-hide="row.allocated">
+      <tr ng-repeat-start="row in available track by row.id" ng-if="!row.allocated">
         <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
         <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
         <td class="action-col">
           <button type="button" class="btn btn-success btn-xs" ng-click="allocate(row)"><i class="fa fa-plus"></i></button>
         </td>
       </tr>
-      <tr class="detail-row" ng-hide="row.allocated">
-        <td class="detail" colspan="10">
+      <tr ng-repeat-end class="detail-row" ng-if="!row.allocated">
+        <td></td>
+        <td class="detail" colspan="9">
           <h5>Description</h5>
           <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
         </td>
       </tr>
-      <tr ng-repeat-end ng-hide="row.allocated"><td class="spacer" colspan="10"></td></tr>
+      <!-- <tr ng-repeat-end ng-hide="row.allocated" class="spacer-row"><td colspan="10"></td></tr> -->
     </tbody>
   </table>
 </div>

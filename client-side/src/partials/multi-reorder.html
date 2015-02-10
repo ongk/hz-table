@@ -10,13 +10,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat-start="row in allocated track by row.id" class="expanded" lr-drag-data="allocated" lr-drag-src="reorder" lr-drop-target="reorder" lr-drop-success="updateIndexes(e, item)">
-        <td class="expander"><i class="fa fa-chevron-down" hz-expand-detail></i></td>
+      <tr ng-repeat-start="row in allocated track by row.id" lr-drag-data="allocated" lr-drag-src="reorder" lr-drop-target="reorder" lr-drop-success="updateIndexes(e, item)">
+        <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
         <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
-        <td class="action-col" ng-if="maxAllocation !== 1"><button type="button" class="btn btn-default btn-xs" ng-click="deallocate(row)"><i class="fa fa-minus"></i></button></td>
+        <td class="action-col" ng-if="maxAllocation !== 1"><button type="button" class="btn btn-danger btn-xs" ng-click="deallocate(row)"><i class="fa fa-minus"></i></button></td>
       </tr>
       <tr class="detail-row">
-        <td class="detail" colspan="10">
+        <td></td>
+        <td ng-repeat-end class="detail" colspan="9">
           <h5>Impact on your quota</h5>
           <pie-chart chart-data="instances" chart-inner-radius="28"></pie-chart>
           <pie-chart chart-data="vcpus" chart-inner-radius="28"></pie-chart>
@@ -25,7 +26,7 @@
           <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
         </td>
       </tr>
-      <tr ng-repeat-end><td class="spacer" colspan="10"></td></tr>
+      <!-- <tr ng-repeat-end class="spacer-row"><td colspan="10"></td></tr> -->
     </tbody>
   </table>
 </div>
@@ -48,20 +49,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat-start="row in available track by row.id" ng-hide="row.allocated">
+      <tr ng-repeat-start="row in available track by row.id" ng-if="!row.allocated">
         <td class="expander"><i class="fa fa-chevron-right" hz-expand-detail></i></td>
         <td ng-repeat="header in headers" class="rsp-p{{ header.priority }}">{{ row[header.key] }}</td>
         <td class="action-col">
-          <button type="button" class="btn btn-default btn-xs" ng-click="allocate(row)"><i class="fa fa-plus"></i></button>
+          <button type="button" class="btn btn-success btn-xs" ng-click="allocate(row)"><i class="fa fa-plus"></i></button>
         </td>
       </tr>
-      <tr class="detail-row" ng-hide="row.allocated">
-        <td class="detail" colspan="10">
+      <tr ng-repeat-end class="detail-row" ng-if="!row.allocated">
+        <td></td>
+        <td class="detail" colspan="9">
           <h5>Description</h5>
           <p>Lorem ipsum dolor sit amet, amet pellentesque nulla, pede leo aliquam a ipsum gravida tortor, donec ante lorem mauris. Sit sed et, scelerisque ipsum et sed vitae conubia quam, eget tellus dolor eget rhoncus scelerisque, neque risus volutpat tincidunt mauris semper lectus.</p>
         </td>
       </tr>
-      <tr ng-repeat-end ng-hide="row.allocated"><td class="spacer" colspan="10"></td></tr>
+      <!-- <tr ng-repeat-end ng-hide="row.allocated" class="spacer-row"><td colspan="10"></td></tr> -->
     </tbody>
   </table>
 </div>

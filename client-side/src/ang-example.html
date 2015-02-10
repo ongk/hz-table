@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="../bower_components/d3/d3.min.js"></script>
   <script src="../bower_components/angular/angular.min.js"></script>
   <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="../bower_components/angular-smart-table/dist/smart-table.min.js"></script>
   <script src="../lib/lrDragNDrop.js"></script>
   <script src="app/pie-chart.directive.js"></script>
-  <script src="app/table.module.js"></script>
   <script src="app/hz-table.directive.js"></script>
+  <script src="app/table.module.js"></script>
   <style type="text/css">
     .table thead tr:first-child th {
       border-bottom: none;
@@ -36,7 +39,7 @@
     }*/
   </style>
 </head>
-<body ng-app="hz.widgets.table" ng-controller="MainCtrl">
+<body ng-app="hz.dashboard" ng-controller="MainCtrl">
   <div class="wrapper" style="padding: 10px;">
     <table st-table="displayedCollection" st-safe-src="rowCollection" hz-table class="table">
       <thead>
@@ -69,7 +72,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="row in displayedCollection track by row.id">
-          <td><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
+          <td><input type="checkbox" ng-model="selected[row.id].checked" ng-change="toggle(row)"/></td>
           <td>{{ row.name }}</td>
           <td>{{ row.vcpus }}</td>
           <td>{{ row.ram }}</td>
@@ -92,14 +95,6 @@
             <div class="form-inline">
               <button class="btn btn-primary batch-action" ng-class="{ checked: numSelected }">Batch Action</button>
               <button class="btn btn-primary single-action" ng-class="{ checked: numSelected }" ng-click="addRow()">Create</button>
-              <div class="form-group">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Filter">
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-                  </span>
-                </div>
-              </div>
             </div>
           </th>
         </tr>
@@ -116,7 +111,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="row in rowCollection track by row.id">
-          <td><input type="checkbox" ng-model="selected[row.id].checked" ng-click="toggle(row)"/></td>
+          <td><input type="checkbox" ng-model="selected[row.id].checked" ng-change="updateSelectCount(row)"/></td>
           <td>{{ row.name }}</td>
           <td>{{ row.vcpus }}</td>
           <td>{{ row.ram }}</td>

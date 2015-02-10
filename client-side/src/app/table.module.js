@@ -1,17 +1,17 @@
 (function() {
   'use strict';
 
-  var app = angular.module('hz.widgets.table', [ 'smart-table', 'lrDragNDrop', 'hz.widgets.charts' ]);
+  var app = angular.module('hz.dashboard', [ 'smart-table', 'lrDragNDrop', 'hz.widgets.table', 'hz.widgets.charts' ]);
 
   function MainCtrl($scope) {
     $scope.rowHeaders = [
       { label: 'Name', key: 'name', priority: 1, size: 'tcol-lg' },
-      { label: 'VCPUs', key: 'vcpus', priority: 2, size: 'tcol-sm' },
-      { label: 'RAM (MB)', key: 'ram', priority: 2, size: 'tcol-med' },
-      { label: 'Total Disk (GB)', key: 'totalDisk', priority: 2, size: 'tcol-med' },
-      { label: 'Root Disk (GB)', key: 'rootDisk', priority: 3, size: 'tcol-med' },
-      { label: 'Ephemeral Disk (GB)', key: 'ephemeralDisk', priority: 3, size: 'tcol-med' },
-      { label: 'Public', key: 'isPublic', priority: 4, size: '' }
+      { label: 'VCPUs', key: 'vcpus', priority: 1, size: 'tcol-sm' },
+      { label: 'RAM (MB)', key: 'ram', priority: 1, size: 'tcol-med' },
+      { label: 'Total Disk (GB)', key: 'totalDisk', priority: 1, size: 'tcol-med' },
+      { label: 'Root Disk (GB)', key: 'rootDisk', priority: 2, size: 'tcol-med' },
+      { label: 'Ephemeral Disk (GB)', key: 'ephemeralDisk', priority: 2, size: 'tcol-med' },
+      { label: 'Public', key: 'isPublic', priority: 3, size: '' }
     ];
 
     $scope.rowCollection = [
